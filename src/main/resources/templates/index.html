@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Library App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>Library Catalog</h1>
+
+<form method="post" action="/library/addBook">
+    <label>Title: <input type="text" name="title" required></label>
+    <button type="submit">Add Book</button>
+</form>
+
+<form method="get" action="/library/allBooks">
+    <button type="submit">View all books</button>
+</form>
+
+<form method="post" action="/library/addCustomer">
+    <label>First Name: <input type="text" name="firstName" required></label>
+    <label>Last Name: <input type="text" name="lastName" required></label>
+    <button type="submit">Add User</button>
+</form>
+
+<form method="get" action="/library/allCustomers">
+    <button type="submit">View all users</button>
+</form>
+
+<form method="post" action="/library/borrow">
+    <label>Book ID: <input type="number" name="bookId" required></label>
+    <label>User ID: <input type="number" name="customerId" required></label>
+    <button type="submit">Borrow</button>
+</form>
+
+<form method="post" action="/library/return">
+    <label>Book ID: <input type="number" name="bookId" required></label>
+    <button type="submit">Return</button>
+</form>
+
+<form method="get" action="/library/myBooks">
+    <label>User ID: <input type="number" name="customerId" required></label>
+    <button type="submit">Show My Books</button>
+</form>
+
+<div th:if="${borrowedBooks != null}">
+    <h2>Borrowed Books:</h2>
+    <ul>
+        <li th:each="book : ${borrowedBooks}" th:text="${book.title}"></li>
+    </ul>
+</div>
+</body>
+</html>

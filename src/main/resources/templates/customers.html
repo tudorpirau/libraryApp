@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Users</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #333;
+        }
+
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center;">All users of the library</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.id}"></td>
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
