@@ -12,7 +12,7 @@ Here are the key features:
 
 #### Prerequisites
 
-1. Java 17 LTS
+1. Java 21 SDK
 2. Maven (optional if using Maven Wrapper).
 3. Internet browser
 
